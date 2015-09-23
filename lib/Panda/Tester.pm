@@ -5,7 +5,7 @@ method test($where, :$bone, :$prove-command = $*DISTRO.name eq 'mswin32' ?? 'pro
     indir $where, {
         my Bool $run-default = True;
         if "Build.pm".IO.f {
-            @*INC.push('file#.');   # TEMPORARY !!!
+            @*INC.push("file#$where");   # TEMPORARY !!!
             GLOBAL::<Build>:delete;
             require 'Build.pm';
             if ::('Build').isa(Panda::Tester) {
